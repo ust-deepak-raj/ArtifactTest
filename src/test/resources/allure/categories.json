@@ -1,23 +1,28 @@
 [
   {
+    "name": "Passed",
+    "matchedStatuses": ["passed"]
+  },
+  {
+    "name": "Skipped",
+    "matchedStatuses": ["skipped"]
+  },
+  {
+    "name": "Unknown",
+    "matchedStatuses": ["unknown"]
+  },
+  {
     "name": "Flaky tests",
-    "matchedStatuses": [
-      "failed",
-      "broken"
-    ],
-    "messageRegex": ".*(timeout|stale element|connection reset).*",
+    "matchedStatuses": ["failed", "broken"],
+    "messageRegex": "(?i).*(timeout|stale element|connection reset).*",
     "flaky": true
   },
   {
-    "name": "Test defects (broken)",
-    "matchedStatuses": [
-      "broken"
-    ]
+    "name": "Test defects",
+    "matchedStatuses": ["broken"]
   },
   {
     "name": "Product defects",
-    "matchedStatuses": [
-      "failed"
-    ]
+    "matchedStatuses": ["failed"]
   }
 ]
