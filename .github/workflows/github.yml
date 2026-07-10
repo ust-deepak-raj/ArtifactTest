@@ -31,7 +31,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run  Tests
-        run: ./gradlew test --tests --no-configuration-cache
+        run: ./gradlew test --no-configuration-cache
 
       # Checkout previous GitHub Pages branch (contains previous report)
       - name: Checkout gh-pages branch
