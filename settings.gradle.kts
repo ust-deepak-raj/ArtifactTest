@@ -12,5 +12,3 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-
-rootProject.name = "Week6_Gradle"

@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Epic("Framework Hardening")
 @Feature("Reporting Insights")
-@Owner("Lahari")
+@Owner("Deepak")
 public class ReportingInsightsTest {
 
     @Test
