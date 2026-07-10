@@ -1,4 +1,3 @@
-package org.reporting;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -8,12 +7,14 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 
+import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -87,5 +88,36 @@ public class ReportingInsightsTest {
 
         assertTrue(signals.contains("trend"));
         assertTrue(signals.contains("category split"));
+    }
+
+    @Test
+    void passedTest() {
+        // PASSED
+        assertEquals(2, 1 + 1);
+    }
+
+    @Test
+    void productDefect() {
+        // FAILED -> Product defects
+        assertEquals(200, 500, "Expected HTTP 200 but got HTTP 500");
+    }
+
+    @Test
+    void brokenTest() {
+        // BROKEN -> Test defects (broken)
+        throw new NullPointerException("Null pointer");
+    }
+
+    @Test
+    void flakyTest() throws TimeoutException {
+        // BROKEN -> Flaky tests
+        // Matches: timeout
+        throw new TimeoutException("Request timeout");
+    }
+
+    @Test
+    void skippedTest() {
+        // SKIPPED
+        Assumptions.assumeTrue(false, "Skipping this test");
     }
 }
