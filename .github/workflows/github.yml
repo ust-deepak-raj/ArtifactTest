@@ -30,8 +30,8 @@ jobs:
       - name: Grant execute permission
         run: chmod +x gradlew
 
-      - name: Run Integration Tests
-        run: ./gradlew test --tests "org.reporting.ReportingInsightsTest" --no-configuration-cache
+      - name: Run  Tests
+        run: ./gradlew test --tests --no-configuration-cache
 
       # Checkout previous GitHub Pages branch (contains previous report)
       - name: Checkout gh-pages branch
